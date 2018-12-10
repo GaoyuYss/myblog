@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+
+{% block title %}
+首页_高宇个人博客 - 一个站在web前端设计之路的男技术员个人博客网站
+{% endblock %}
+
+{% block right %}
+  <main class="r_box">
+    {% for art in article %}
+    <li><i><a href="{% url 'web:info' art.id %}"> {% if art.icon %}  <img src="/media/{{ art.icon }}" {% endif %} ></a></i>
+      <h3><a href="{% url 'web:info' art.id %}">{{ art.title }}</a></h3>
+      <p>{{ art.desc }}</p>
+    </li>
+    {% endfor%}
+
+  </main>
+{% endblock %}
+
+
+
